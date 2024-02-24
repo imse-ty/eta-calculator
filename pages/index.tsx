@@ -61,7 +61,8 @@ export default function Home() {
                 fontSize: ['48px', '100px', '109px', '150px'],
                 lineHeight: '1.1',
                 fontWeight: 'bold',
-                fontStretch: '125%'
+                fontStretch: '125%',
+                letterSpacing: '0'
               }}
             >
               SET THEORY
