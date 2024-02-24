@@ -9,6 +9,15 @@ const nextConfig = {
     });
 
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/agency',
+        destination: 'https://setangle.com/agency',
+        permanent: true
+      }
+    ];
   }
 };
 
