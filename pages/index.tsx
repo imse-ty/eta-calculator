@@ -2,10 +2,11 @@
 //@ts-nocheck
 
 import Head from 'next/head';
-import { Box, Container, Flex, Button } from 'krado-react';
+import { Container, Flex, Button } from 'krado-react';
 import Heading from '@/components/fixed-krado-components/Heading';
 import Text from '@/components/fixed-krado-components/Text';
 import Image from 'next/image';
+import { MdPlayArrow, MdPodcasts } from 'react-icons/md';
 
 export default function Home() {
   return (
@@ -72,14 +73,24 @@ export default function Home() {
               process.
             </Text>
           </Flex>
-
-          <a
-            href='https://podcast.imsety.com/'
-            target='_blank'
-            rel='noindex nofollow'
-          >
-            <Button>Listen to podcast</Button>
-          </a>
+          <Flex sx={{ flexDirection: 'row', gap: 3 }}>
+            <a
+              href='https://www.youtube.com/playlist?list=PL4GjI-O6-TdLeovUr1W6PgMOOe1aFaKW9'
+              target='_blank'
+              rel='noindex nofollow'
+            >
+              <Button leftIcon={<MdPlayArrow />}>Watch episodes</Button>
+            </a>
+            <a
+              href='https://podcast.imsety.com/'
+              target='_blank'
+              rel='noindex nofollow'
+            >
+              <Button leftIcon={<MdPodcasts />} variant='ghost'>
+                Listen to podcast
+              </Button>
+            </a>
+          </Flex>
         </Container>
       </Flex>
     </>
