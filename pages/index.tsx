@@ -78,6 +78,7 @@ export default function Home() {
               href="https://www.youtube.com/playlist?list=PL4GjI-O6-TdLeovUr1W6PgMOOe1aFaKW9"
               target="_blank"
               rel="noindex nofollow"
+              data-umami-event="watch-episodes-button"
             >
               <Button leftIcon={<MdPlayArrow />}>Watch episodes</Button>
             </a>
@@ -85,6 +86,7 @@ export default function Home() {
               href="https://podcast.imsety.com/"
               target="_blank"
               rel="noindex nofollow"
+              data-umami-event="listen-to-podcast-button"
             >
               <Button leftIcon={<MdPodcasts />} variant="ghost">
                 Listen to podcast
