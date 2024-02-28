@@ -14,7 +14,7 @@ const nextConfig = {
     return [
       {
         source: '/agency',
-        destination: 'https://setangle.com/agency',
+        destination: 'https://setangle.com',
         permanent: true
       }
     ];
