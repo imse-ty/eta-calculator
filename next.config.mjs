@@ -16,6 +16,11 @@ const nextConfig = {
         source: '/agency',
         destination: 'https://setangle.com',
         permanent: true
+      },
+      {
+        source: '/live',
+        destination: 'https://youtube.com/@imsety/live',
+        permanent: false
       }
     ];
   }
