@@ -21,6 +21,11 @@ const nextConfig = {
         source: '/live',
         destination: 'https://youtube.com/@imsety/live',
         permanent: false
+      },
+      {
+        source: '/chat',
+        destination: 'https://cal.com/imsety/podcast-prep',
+        permanent: false
       }
     ];
   }
