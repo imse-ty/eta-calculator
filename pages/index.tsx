@@ -57,10 +57,14 @@ export default function Home() {
               gap: 4
             }}
           >
+            {' '}
+            <Text as='p' variant='body.pretext'>
+              Launching Q1 2025
+            </Text>
             <Heading
               as='h1'
+              variant='display.display'
               sx={{
-                fontSize: ['48px', '100px', '109px', '150px'],
                 lineHeight: '1.1',
                 fontWeight: 'bold',
                 fontStretch: '125%',
@@ -69,7 +73,7 @@ export default function Home() {
             >
               SET SQUARE
             </Heading>
-            <Text as='p' variant='body.summary' sx={{ maxWidth: '900px' }}>
+            <Text as='p' sx={{ maxWidth: '900px' }}>
               A platform spelaizing in creating simple, effective motion design
               templates that help small and medium-sized businesses stand out
               and succeed.
