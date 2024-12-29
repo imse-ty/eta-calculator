@@ -6,7 +6,8 @@ import { Container, Flex, Button } from 'krado-react';
 import Heading from '@/components/fixed-krado-components/Heading';
 import Text from '@/components/fixed-krado-components/Text';
 import Image from 'next/image';
-import { MdPlayArrow, MdPodcasts } from 'react-icons/md';
+import { MdOpacity, MdPlayArrow, MdPodcasts } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
@@ -49,6 +50,7 @@ export default function Home() {
           }}
         >
           <Flex
+            as={motion.div}
             sx={{
               flexDirection: 'column',
               textAlign: 'center',
@@ -58,11 +60,27 @@ export default function Home() {
             }}
           >
             {' '}
-            <Text as='p' variant='body.pretext'>
+            <Text
+              as={motion.p}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 100, y: 0 }}
+              transition={{
+                delay: 1.3,
+                duration: 1,
+                type: 'tween',
+                ease: 'easeOut'
+              }}
+              variant='body.pretext'
+            >
               Launching Q1 2025
             </Text>
             <Heading
-              as='h1'
+              as={motion.h1}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 100, y: 0 }}
+              transition={{
+                duration: 1
+              }}
               variant='display.display'
               sx={{
                 lineHeight: '1.1',
@@ -73,7 +91,16 @@ export default function Home() {
             >
               SET SQUARE
             </Heading>
-            <Text as='p' sx={{ maxWidth: '900px' }}>
+            <Text
+              as={motion.p}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 100, y: 0 }}
+              transition={{
+                delay: 0.3,
+                duration: 1
+              }}
+              sx={{ maxWidth: '900px' }}
+            >
               A platform spelaizing in creating simple, effective motion design
               templates that help small and medium-sized businesses stand out
               and succeed.
