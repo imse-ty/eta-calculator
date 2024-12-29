@@ -1,7 +1,7 @@
 import { theme } from 'krado-react';
 import { buildMonochromaticTheme } from './monochromatic-theme';
 
-const pageTheme = buildMonochromaticTheme('nut');
+const pageTheme = buildMonochromaticTheme('sobek');
 
 export const setyTheme = {
   // config: {
