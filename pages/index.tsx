@@ -66,9 +66,9 @@ export default function Home() {
               animate={{ opacity: 100, y: 0 }}
               transition={{
                 delay: 1.3,
-                duration: 1,
+                duration: 3,
                 type: 'tween',
-                ease: 'easeOut'
+                ease: [0.0, 0.655, 0.24, 1.02]
               }}
               variant='body.pretext'
             >
@@ -79,7 +79,9 @@ export default function Home() {
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 100, y: 0 }}
               transition={{
-                duration: 1
+                duration: 1,
+                type: 'tween',
+                ease: [0.0, 0.655, 0.24, 1.02]
               }}
               variant='display.display'
               sx={{
@@ -97,7 +99,8 @@ export default function Home() {
               animate={{ opacity: 100, y: 0 }}
               transition={{
                 delay: 0.3,
-                duration: 1
+                duration: 1,
+                ease: [0.0, 0.655, 0.24, 1.02]
               }}
               sx={{ maxWidth: '900px' }}
             >
