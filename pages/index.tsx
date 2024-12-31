@@ -104,9 +104,9 @@ export default function Home() {
               }}
               sx={{ maxWidth: '900px' }}
             >
-              A platform spelaizing in creating simple, effective motion design
-              templates that help small and medium-sized businesses stand out
-              and succeed.
+              A platform specializing in creating simple, effective motion
+              design templates that help small and medium-sized businesses stand
+              out and succeed.
             </Text>
           </Flex>
           {/* <Flex sx={{ flexDirection: ['column', 'row'], gap: 3 }}>
