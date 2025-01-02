@@ -8,6 +8,7 @@ import Text from '@/components/fixed-krado-components/Text';
 import Image from 'next/image';
 import { MdOpacity, MdPlayArrow, MdPodcasts } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import NewsletterEmbed from '@/components/newsletter-embed';
 
 export default function Home() {
   return (
@@ -108,6 +109,17 @@ export default function Home() {
               design templates that help small and medium-sized businesses stand
               out and succeed.
             </Text>
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 100, y: 0 }}
+              transition={{
+                delay: 0.5,
+                duration: 1,
+                ease: [0.0, 0.655, 0.24, 1.02]
+              }}
+            >
+              <NewsletterEmbed />
+            </motion.div>
           </Flex>
           {/* <Flex sx={{ flexDirection: ['column', 'row'], gap: 3 }}>
             <a
