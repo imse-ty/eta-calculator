@@ -12,13 +12,39 @@ export default function Home() {
   const [input, setInput] = useState(1);
   const [unit, setUnit] = useState('minutes');
   const [eta, setEta] = useState(null);
+  const [displayUnit, setDisplayUnit] = useState('minutes');
 
   const calculateETA = () => {
     let multiplier = 1;
+    if (unit === 'hours') multiplier = 60; // 1 hour = 60 minutes
     if (unit === 'days') multiplier = 1440; // 1 day = 1440 minutes
     if (unit === 'weeks') multiplier = 10080; // 1 week = 10080 minutes
-    const result = input * multiplier * 2.25;
-    setEta(result);
+
+    let result = input * multiplier * 2.2;
+    // Convert result to appropriate units
+    let finalValue = result;
+    let finalUnit = 'minutes';
+
+    // if (result >= 10080) {
+    //   finalValue = Math.ceil(result / 10080);
+    //   finalUnit = 'weeks';
+    if (result >= 1440) {
+      finalValue = Math.ceil(result / 1440);
+      finalUnit = 'days';
+    } else if (result >= 60) {
+      finalUnit = 'hours';
+      let totalMinutes = Math.ceil(result / 30) * 30; // Always round up to next 30 minutes
+      let hours = Math.floor(totalMinutes / 60);
+      let minutes = totalMinutes % 60;
+      finalValue = `${hours} hours${
+        minutes > 0 ? ` and ${minutes} minutes` : ''
+      }`;
+    } else {
+      finalValue = Math.round(result / 5) * 5;
+    }
+
+    setEta(finalValue);
+    setDisplayUnit(finalUnit);
   };
 
   return (
@@ -29,6 +55,72 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      <Flex
+        as='main'
+        sx={{
+          minHeight: '100vh',
+          height: '100%',
+          width: '100%',
+          flexDirection: 'column'
+        }}
+      >
+        <Container>
+          <Text as='h1' sx={{ fontSize: 5, fontWeight: 'bold', mb: 4 }}>
+            ETA Calculator
+          </Text>
+          <Flex
+            sx={{
+              alignItems: 'center',
+              spaceX: 3,
+              bg: 'gray.900',
+              p: 4,
+              borderRadius: 'lg'
+            }}
+          >
+            <Input
+              type='number'
+              value={input}
+              onChange={(e) => setInput(Number(e.target.value))}
+              sx={{
+                width: '80px',
+                bg: 'transparent',
+                textAlign: 'center',
+                borderBottom: '2px solid',
+                borderColor: 'gray.700',
+                fontSize: 3
+              }}
+            />
+            <Select
+              value={unit}
+              onChange={(e) => setUnit(e.target.value)}
+              sx={{
+                bg: 'gray.900',
+                fontSize: 3,
+                borderBottom: '2px solid',
+                borderColor: 'gray.700'
+              }}
+            >
+              <option value='minutes'>Minutes</option>
+              <option value='hours'>Hours</option>
+              <option value='days'>Days</option>
+              <option value='weeks'>Weeks</option>
+            </Select>
+          </Flex>
+
+          <Button onClick={calculateETA}>Calculate ETA</Button>
+          {eta !== null && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Text as='p' sx={{ mt: 4, fontSize: 4, fontWeight: 'bold' }}>
+                ETA: {eta} {displayUnit}
+              </Text>
+            </motion.p>
+          )}
+        </Container>
+      </Flex>
     </>
   );
 }
