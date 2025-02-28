@@ -40,7 +40,7 @@ export default function Home() {
         minutes > 0 ? ` and ${minutes} minutes` : ''
       }`;
     } else {
-      finalValue = Math.round(result / 5) * 5;
+      finalValue = Math.ceil(result / 5) * 5;
     }
 
     setEta(finalValue);
